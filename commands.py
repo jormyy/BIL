@@ -23,6 +23,9 @@ def commands(instruction):
         song_uri = search_song(token, song)
         sp = authenticate()
         sp.start_playback(uris=[song_uri])
+    elif instruction == "pause":
+        sp = authenticate()
+        sp.pause_playback()
         
         
     elif "time" in instruction:
