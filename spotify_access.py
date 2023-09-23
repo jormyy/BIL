@@ -12,8 +12,6 @@ load_dotenv()
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
-SCOPES = "user-modify-playback-state"
-
 
 def get_token():
     auth_string = f"{CLIENT_ID}:{CLIENT_SECRET}"
@@ -50,7 +48,7 @@ def search_song(token, song_query):
 def authenticate():
     
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
-                                                client_secret=CLIENT_SECRET,
-                                                redirect_uri="http://localhost:5000/callback",
-                                                scope="user-modify-playback-state"))
+                                                   client_secret=CLIENT_SECRET,
+                                                   redirect_uri="http://localhost:5000/callback",
+                                                   scope="user-modify-playback-state"))
     return sp

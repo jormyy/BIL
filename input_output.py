@@ -2,6 +2,8 @@ import speech_recognition as sr
 import pyttsx3
 
 
+MAX_DURATION = 5
+
 def listen_to_command():
     
     listener = sr.Recognizer()
@@ -10,7 +12,9 @@ def listen_to_command():
         print("listening...")
         
         listener.pause_threshold = 0.7
-        audio = listener.listen(source)
+        listener.adjust_for_ambient_noise(source)
+        
+        audio = listener.listen(source, timeout=MAX_DURATION)
         
         try:
             query = listener.recognize_google(audio)

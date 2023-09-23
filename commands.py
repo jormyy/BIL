@@ -16,18 +16,13 @@ month_convert = {
 }
 
 
-def commands(instruction):
+def commands(instruction, sp, token):
     if "play" in instruction:
         song = instruction.replace("play ", "")
-        token = get_token()
         song_uri = search_song(token, song)
-        sp = authenticate()
         sp.start_playback(uris=[song_uri])
-    elif instruction == "pause":
-        sp = authenticate()
-        sp.pause_playback()
-        
-        
+    elif "pause" in instruction:
+        sp.pause_playback() 
     elif "time" in instruction:
         time = datetime.datetime.now().strftime("%I:%M%p")
         talk(f"the time is {time}")
