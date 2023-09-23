@@ -2,7 +2,7 @@ import speech_recognition as sr
 import pyttsx3
 
 
-MAX_DURATION = 5
+MAX_DURATION = 4
 
 def listen_to_command():
     
