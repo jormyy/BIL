@@ -4,3 +4,4 @@ pywhatkit
 datetime
 pyaudio
 requests
+spotipy

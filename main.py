@@ -8,7 +8,9 @@ def main():
         query = listen_to_command().lower()
         if "go away" in query:
             return
-        commands(query)
+        if "hey bill" in query:
+            query = query.replace("hey bill ", "")
+            commands(query)
         
         
 if __name__ == "__main__":
