@@ -9,7 +9,7 @@ def listen_to_command():
     with sr.Microphone() as source:
         print("listening...")
         
-        listener.pause_threshold = 0.7
+        listener.pause_threshold = 0.5
         audio = listener.listen(source)
         
         try:

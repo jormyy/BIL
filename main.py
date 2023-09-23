@@ -2,7 +2,6 @@ from input_output import listen_to_command
 from commands import commands
 
 
-
 def main():
     
     while True:
