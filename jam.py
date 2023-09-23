@@ -1,50 +1,16 @@
-import speech_recognition as sr
-import pyttsx3
-import pywhatkit as pwk
-import datetime
+from input_output import listen_to_command
+from commands import commands
 
 
-listener = sr.Recognizer()
 
-machine = pyttsx3.init()
-
-def talk(text):
-    machine.say(text)
-    machine.runAndWait()
-
-
-def input_instruction():
-    with sr.Microphone() as origin:
-        print("listening")
-        while True:
-            try:
-                speech = listener.listen(origin)
-                instruction = listener.recognize_google(speech).lower()
-                if "hello" in instruction:
-                    instruction = instruction.replace("hello", "")
-                    break
-            except sr.WaitTimeoutError:
-                continue
-    return instruction
+def main():
     
-
-def play_jam():
-    instruction = input_instruction()
-    print(instruction)
-    if "play" in instruction:
-        song = instruction.replace("play", "")
-        talk(f"playing {song}")
-        pwk.playonyt(song)
-    elif "time" in instruction:
-        time = datetime.datetime.now().strftime("%I:%M%p")
-        talk(f"the time is {time}")
-    elif "date" in instruction:
-        date = datetime.datetime.now().strftime("%m / %d / %Y")
-        talk(f"the date is {date}")
-    
-    
-while True:
-    try:
-        play_jam()
-    except sr.WaitTimeoutError:
-        continue
+    while True:
+        query = listen_to_command().lower()
+        if "go away" in query:
+            return
+        commands(query)
+        
+        
+if __name__ == "__main__":
+    main()
