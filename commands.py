@@ -23,6 +23,8 @@ def commands(instruction, sp, token):
         sp.start_playback(uris=[song_uri])
     elif "pause" in instruction:
         sp.pause_playback() 
+    elif "resume" in instruction:
+        sp.start_playback()
     elif "time" in instruction:
         time = datetime.datetime.now().strftime("%I:%M%p")
         talk(f"the time is {time}")

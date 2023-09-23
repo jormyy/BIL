@@ -14,9 +14,8 @@ def listen_to_command():
         listener.pause_threshold = 0.7
         listener.adjust_for_ambient_noise(source)
         
-        audio = listener.listen(source, timeout=MAX_DURATION)
-        
         try:
+            audio = listener.listen(source, timeout=MAX_DURATION)
             query = listener.recognize_google(audio)
         
         except:

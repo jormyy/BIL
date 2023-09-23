@@ -8,14 +8,19 @@ def main():
     sp = authenticate()
     token = get_token()
     
-    timer = time.time()
+    ten_min_timer = time.time()
+    hour_timer = time.time()
     
     while True:
-        if time.time() - timer >= 600:
+        if time.time() - ten_min_timer >= 600:
             sp = authenticate()
+            ten_min_timer = time.time()
+        if time.time() - hour_timer >= 3600:
             token = get_token()
+            hour_timer = time.time()
             
         query = listen_to_command().lower()
+        print(query)
         if "go away" in query:
             return
         if "hey bill" in query:
