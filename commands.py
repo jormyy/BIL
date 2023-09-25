@@ -9,7 +9,8 @@ urls = {
     "canvas": "https://canvas.ucdavis.edu",
     "github": "https://github.com",
     "linkedin": "https://www.linkedin.com/in/jeremy1112ha/",
-    "gmail": "https://mail.google.com/mail/u/0/#inbox"
+    "gmail": "https://mail.google.com/mail/u/0/#inbox",
+    "netflix": "https://www.netflix.com/browse"
 }
 
 month_convert = {
@@ -65,3 +66,7 @@ def commands(instruction, sp, token):
         elif "gmail" in instruction:
             webbrowser.open(urls["gmail"])
             talk("opening gmail")
+        
+        elif "netflix" in instruction:
+            webbrowser.open(urls["netflix"])
+            talk("opening netflix")

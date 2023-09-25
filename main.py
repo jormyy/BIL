@@ -23,8 +23,8 @@ def main():
         print(query)
         if "go away" in query:
             return
-        if "hey bill" in query:
-            query = query.replace("hey bill ", "")
+        if "bill" in query:
+            query = query.replace("bill ", "")
             commands(query, sp, token)
         
         
